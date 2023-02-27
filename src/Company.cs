@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CompanyManager.src;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,10 +23,11 @@ namespace CompanyManager
             "Send Product",
             "Demote Employee",
             "Promote Employee",
-            "View Organisation"
+            "View Organisation",
+            "Quit",
         };
 
-        static public List<Company> s_companies = new List<Company>();
+        static public List<Company> s_companies = Initializer.InitializeCompanies("assets\\companies.txt");
 
         public Company(string name)
         {
@@ -33,29 +35,7 @@ namespace CompanyManager
             this.Products = new MyHashSet<Product>();
             this.Name = name;
         }
-
-        public static void InitCompanies()
-        {
-            s_companies.Add(new Company("asus"));
-            s_companies.Add(new Company("intel"));
-            s_companies.Add(new Company("amd"));
-            s_companies.Add(new Company("keksfirma"));
-
-            s_companies[0].Employees.Add(new Employee("gerd", Position.Employee));
-            s_companies[0].Employees.Add(new Employee("manfred", Position.Manager));
-            s_companies[0].Employees.Add(new Employee("gerfred", Position.Owner));
-
-            s_companies[0].Products.Add(new Product(ProductType.Banana));
-            s_companies[0].Products.Add(new Product(ProductType.Banana));
-            s_companies[0].Products.Add(new Product(ProductType.Kiwi));
-            s_companies[0].Products.Add(new Product(ProductType.Kiwi));
-            s_companies[0].Products.Add(new Product(ProductType.Kiwi));
-            s_companies[0].Products.Add(new Product(ProductType.Chicken));
-            s_companies[0].Products.Add(new Product(ProductType.Chicken));
-            s_companies[0].Products.Add(new Product(ProductType.Chicken));
-        }
-
-        
+     
         private void PrintProducts<T>(List<T> printList, string msg)
         {
             Console.WriteLine(msg);
@@ -99,11 +79,16 @@ namespace CompanyManager
         private void SendProduct(Product send)
         {
             Console.WriteLine();
-            Console.WriteLine("Where do u want to send the product?");
+            Console.Write("Where do u want to send the product?");
             Company sendTo = Company.SelectCompany();
 
             sendTo.Products.Add(send);
             Products.Remove(send);
+
+            Console.WriteLine();
+            string wl = $"Succesfully sent the product {send.ToString()} to the Organisation: {sendTo.Name}";
+            Console.WriteLine(wl);
+            Console.ReadLine();
         }
 
         private void ViewOrganisation()
@@ -187,7 +172,7 @@ namespace CompanyManager
             Console.WriteLine("Which company should be effected? (Type out the company name)");
 
             int cnt = 'a';
-            for (int i = 0; i < Company.s_options.Length; i++)
+            for (int i = 0; i < Company.s_companies.Count; i++)
             {
                 string wrl = Convert.ToChar(cnt) + ") " + Company.s_companies[i].Name;
 
