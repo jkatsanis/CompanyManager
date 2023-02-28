@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CompanyManager.Tests.src
 {
-    public class CompanyTest
+    public sealed class CompanyTest
     {
 
         [Fact]

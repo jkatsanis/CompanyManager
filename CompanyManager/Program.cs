@@ -1,11 +1,10 @@
 ﻿using CompanyManager;
 
-public class Program
+public static class Program
 {
     public static bool s_quit = false;
     private static void Main()
     {
-
         while (!Program.s_quit)
         {
             Console.Clear();    

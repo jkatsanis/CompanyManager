@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace CompanyManager
 {
-    public class Employee
+    public sealed class Employee
     {
         public string Name { get; }
         public Position Position { get; private set; }

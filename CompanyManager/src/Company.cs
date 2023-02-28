@@ -14,7 +14,7 @@ namespace CompanyManager
 
         public string Name { get; }
 
-        public static string[] s_options =
+        public static readonly string[] s_options =
         {
             "Send Product",
             "Demote Employee",
@@ -23,7 +23,7 @@ namespace CompanyManager
             "Quit",
         };
 
-        static public List<Company> s_companies = Initializer.InitializeCompanies("assets\\companies.txt");
+        static public List<Company> s_companies = Initializer.InitializeCompanies("assets\\companies.csv", "assets\\employees.csv");
 
         public Company(string name)
         {
@@ -43,7 +43,7 @@ namespace CompanyManager
             }
             Console.WriteLine();
         }
-
+       
         private bool IsValidNumber<T>(int num, List<T> list)
         {
             if (0 > num || num >= list.Count)

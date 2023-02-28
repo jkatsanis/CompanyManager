@@ -8,5 +8,10 @@ namespace CompanyManager.Tests.src
 {
     public sealed class InitializerTests
     {
+        [Fact]
+
+        public void InitializeCompanies_Valid()
+        {
+        }
     }
 }

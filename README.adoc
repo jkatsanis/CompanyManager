@@ -8,7 +8,7 @@
 
 = Company Manager
 
-In this exercise you will represent a Company-Manager. You can Send Products, Demote Employees, Promote Employees, View Organisations and Quit
+In this exercise you will create a Company-Manager. You can Send Products, Demote Employees, Promote Employees, View Organisations and Quit.
 
 [plantuml]
 ----
@@ -103,28 +103,25 @@ Company "1" -r- "2" MyHashSet: myHashSet
 
 == `Model` class
 
-* enums of productType an the position of an employee.
+* Enum of ProductTypes, and enum of Position of an employee
 
 == `Initializer` class
 
-* Here are Companys initialized
+* Here are Companys initialized. Employees are randomly hired at companies, products are random initialized aswell. 
 
 == `Employe` class
 
-* In this class you can Demote an employe (If an employe with position == employe is demoted he is fired) ore Promote an eploye (Owner can not be Promoted).
-
-* An employe can be shown in the console.
+* In this class you can Demote an employee. If an employee with Position.Employee is demoted he will get fired! Owner can not be Promoted.
+* Contains a ToString() method, printing the name and the position
 
 == `Company` class
 
-* You have options to choose from to manage the company.
+* Manages the employees and the products
 
-* You are able to print the available products.
+* You are able to view the whole organisation. This will print all the employees and products with the .ToString() method to the console.
 
-* You can select a product from the list. only a valid number can be entered.
+* You can select a product from the list. Only a valid number can be entered.
 
-* You can send products to other companys with adding an removing from your HashSets.
+* You can send products to other companies
 
-* You can write a company to the console.
-
-* You can select witch company you want to manage.
+* You can select which company you want to manage.

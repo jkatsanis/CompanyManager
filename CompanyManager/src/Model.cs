@@ -16,9 +16,11 @@ namespace CompanyManager
 
     public enum ProductType
     {
-        None = -1,
-        Banana = 0,
-        Kiwi,
-        Chicken,
+        Keyboard,
+        Mouse,
+        Headset,
+        Screen,
+        PC,
+        Controller,
     }
 }

@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace CompanyManager
 {
-    public class Product
+    public sealed class Product
     {
+        public static readonly int s_maxProducts = 64;
+        public static readonly int s_productsAvailable = 6;
+
         public ProductType ProductType { get; }
 
         public Product(ProductType type)
