@@ -7,11 +7,7 @@ using System.Threading.Tasks;
 
 namespace CompanyManager
 {
-    // TODO: Read employes from file
-    // TODO: Get products, for example constructor list, by a method
-   
-    // TODO: Product count sending
-    public class Company
+    public sealed class Company
     {
         public MyHashSet<Employee> Employees { get; set; }
         public MyHashSet<Product> Products { get; set; }    
@@ -50,7 +46,7 @@ namespace CompanyManager
 
         private bool IsValidNumber<T>(int num, List<T> list)
         {
-            if (0 > num - 1 || num - 1 >= list.Count)
+            if (0 > num || num >= list.Count)
             {
                 Console.WriteLine("Invalid number!");
                 Console.ReadLine();
@@ -69,7 +65,7 @@ namespace CompanyManager
 
             int num = int.Parse(Console.ReadLine()!);
 
-            if(IsValidNumber(num , productList))
+            if(IsValidNumber(num - 1, productList))
             {
                 return;
             }
@@ -116,7 +112,7 @@ namespace CompanyManager
 
             int num = int.Parse(Console.ReadLine()!);
 
-            if (IsValidNumber(num, employeeList))
+            if (IsValidNumber(num - 1, employeeList))
             {
                 return;
             }
