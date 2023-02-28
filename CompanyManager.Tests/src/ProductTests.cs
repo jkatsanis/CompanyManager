@@ -8,7 +8,7 @@ using FluentAssertions;
 
 namespace CompanyManager.Tests
 {
-    public class ProductsTests
+    public sealed class ProductsTests
     {
         [Fact]
         public void Constructor()

@@ -1,0 +1,130 @@
+:sectnums:
+:nofooter:
+:toc: left
+:icons: font
+:data-uri:
+:source-highlighter: highlightjs
+:stem: latexmath
+
+= Company Manager
+
+In this exercise you will represent a Company-Manager. You can Send Products, Demote Employees, Promote Employees, View Organisations and Quit
+
+[plantuml]
+----
+@startuml
+
+hide empty methods
+
+enum Position {
+    Employee
+    Manager
+    VicePresident
+    Owner
+}
+
+enum ProductType {
+    None
+    Banana
+    Kiwi
+    Chicken
+}
+
+class MyHashSet {
+    -const int InitialBuckets
+    -const int MaxDepth
+    -List<T>[] _buckets
+    -int _currentMaxDepth
+    -int NoOfBuckets
+
+    +MyHashSet(): this(InitialBuckets)
+    -MyHashSet(int)
+    +bool Add(T)
+    +void Remove(T)
+    +bool Contains(T)
+    +List<T> GetValues()
+    -void Grow()
+    -GetBucketIndex(int)
+    -List<T>[] CreateBuckets(int) {static}
+}
+
+class Company {
+    +MyHashSet<Employee> Employees
+    +MyHashSet<Product> Products
+    +string Name
+    +string[] s_options{static}
+    +List<Company> s_companies{static}
+
+    +Company(string)
+    -void PrintProducts<T>(List<T>, string)
+    -bool IsValidNumber<T>(int, List<T>)
+    -void SelectProduct()
+    -void SendProduct(Product)
+    -void ViewOrganisation()
+    -void SelectEmployee(bool)
+    -void TransitEmployee(Employee, bool)
+    -void PerfomOption(string)
+    +Company SelectCompany(){static}
+    +Company GetCompanyByName(string){static}
+}
+
+class Employee {
+    +string Name [readonly]
+    +Position Position {get; private set}
+
+    +Employee(string,Position)
+    +override string ToString()
+    +void Demote()
+    +void Promote()
+}
+
+class Products {
+    +ProductType ProductType
+
+    +Product(ProducType)
+    +override string ToString()
+}
+
+class Initializer {
+    +List<Company> InitializeCompanies(string){static}
+}
+
+Company "1" -- "n" Employee: employs
+Company "1" -l- "n" Products: products
+Products "1" -- "1" ProductType: productType
+Employee "1" -r- "1" Position: position
+Company "1" -r- "2" MyHashSet: myHashSet
+@enduml
+----
+---
+== `MyHashSet` class
+
+* Here you'll just implement a generic HashSet.
+
+== `Model` class
+
+* enums of productType an the position of an employee.
+
+== `Initializer` class
+
+* Here are Companys initialized
+
+== `Employe` class
+
+* In this class you can Demote an employe (If an employe with position == employe is demoted he is fired) ore Promote an eploye (Owner can not be Promoted).
+
+* An employe can be shown in the console.
+
+== `Company` class
+
+* You have options to choose from to manage the company.
+
+* You are able to print the available products.
+
+* You can select a product from the list. only a valid number can be entered.
+
+* You can send products to other companys with adding an removing from your HashSets.
+
+* You can write a company to the console.
+
+* You can select witch company you want to manage.
