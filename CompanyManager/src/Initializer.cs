@@ -8,9 +8,17 @@ namespace CompanyManager.src
 {
     public static class Initializer
     {
+        /// <summary>
+        ///     Initializes the list of companies by reading from CSV files and creating Company and Employee objects.
+        ///     Also initializes the products RANDOMLY for each company.
+        ///     
+        ///     Hint: Use the RandomProvider class
+        /// </summary>
+        /// <param name="companiesPath">The path of the CSV file containing the list of companies.</param>
+        /// <param name="employeesPath">The path of the CSV file containing the list of employees.</param>
+        /// <returns>A list of Company objects that have been initialized with employees and products.</returns>
         public static List<Company> InitializeCompanies(string companiesPath, string employeesPath)
         {
-            Random rndm = new Random();
             List<Company> s_companies = new List<Company>();
 
             if (ReadFromCSV(companiesPath) == null || ReadFromCSV(employeesPath) == null)
@@ -29,7 +37,7 @@ namespace CompanyManager.src
 
             for (int i = 0; i < employees.Length; i++)
             {
-                int randomIdx = rndm.Next(0, companies.Length - 1);
+                int randomIdx = RandomProvider.random.Next(0, companies.Length - 1);
                 string[] employee = employees[i].Split(";");
                 Enum.TryParse<Position>(employee[1], out Position pos);
                 s_companies[randomIdx].Employees.Add(new Employee(employee[0], pos));
@@ -37,11 +45,10 @@ namespace CompanyManager.src
 
             Initializer.InitializeProducts(s_companies);
 
-
             return s_companies;
         }
 
-        public static string[]? ReadFromCSV(string path)
+        private static string[]? ReadFromCSV(string path)
         {
             if (!File.Exists(path))
             {
@@ -52,14 +59,13 @@ namespace CompanyManager.src
             return s;
         }
 
-        public static void InitializeProducts(List<Company> companies)
+        private static void InitializeProducts(List<Company> companies)
         {
-            Random rnd = new Random();
             for (int i = 0; i < Product.s_maxProducts; i++)
             {
-                int companyIdx = rnd.Next(0, companies.Count);
+                int companyIdx = RandomProvider.random.Next(0, companies.Count);
 
-                ProductType t = (ProductType)rnd.Next(0, Product.s_productsAvailable);
+                ProductType t = (ProductType)RandomProvider.random.Next(0, Product.s_productsAvailable);
 
                 Product p = new Product(t);
 

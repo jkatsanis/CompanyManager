@@ -13,17 +13,17 @@ namespace CompanyManager.Tests
         [Fact]
         public void Constructor()
         {
-            var product = new Product(ProductType.Chicken);
+            var product = new Product(ProductType.Mouse);
 
-            product.ProductType.Should().Be(ProductType.Chicken);
+            product.ProductType.Should().Be(ProductType.Mouse);
         }
 
         [Fact]
         public void StringConcentation()
         {
-            var product = new Product(ProductType.Chicken);
+            var product = new Product(ProductType.Keyboard);
 
-            product.ToString().Should().Be("Product: Chicken");
+            product.ToString().Should().Be("Product: Keyboard");
         }
     }
 }

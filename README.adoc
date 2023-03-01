@@ -10,6 +10,13 @@
 
 In this exercise you will create a Company-Manager. You can Send Products, Demote Employees, Promote Employees, View Organisations and Quit.
 
+HINTS (READ)!!!
+
+* Watch the video!
+* You can use your own style for the output, behinde the scenes it should work as showed tho. 
+* You do not need to list the Companies with 1, 2, ... you can get the input format for everything how you want
+* THERE Are methoded twice implemented, they are overloaded with 1 parameter because the program needs alot of user inputs so some method were untestable. Thats why we created a a overloaded method with a already done user input. You can find the user input commented over the method!
+
 [plantuml]
 ----
 @startuml
@@ -108,6 +115,8 @@ Company "1" -r- "2" MyHashSet: myHashSet
 == `Initializer` class
 
 * Here are Companys initialized. Employees are randomly hired at companies, products are random initialized aswell. 
+
+* Hints: Use the Random provider class
 
 == `Employe` class
 

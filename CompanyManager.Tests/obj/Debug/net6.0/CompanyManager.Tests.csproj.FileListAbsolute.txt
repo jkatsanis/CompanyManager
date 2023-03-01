@@ -107,3 +107,5 @@ C:\Dev\CompanyManager\CompanyManager.Tests\obj\Debug\net6.0\refint\CompanyManage
 C:\Dev\CompanyManager\CompanyManager.Tests\obj\Debug\net6.0\CompanyManager.Tests.pdb
 C:\Dev\CompanyManager\CompanyManager.Tests\obj\Debug\net6.0\CompanyManager.Tests.genruntimeconfig.cache
 C:\Dev\CompanyManager\CompanyManager.Tests\obj\Debug\net6.0\ref\CompanyManager.Tests.dll
+C:\Dev\CompanyManager\CompanyManager.Tests\bin\Debug\net6.0\assets\companies.csv
+C:\Dev\CompanyManager\CompanyManager.Tests\bin\Debug\net6.0\assets\employees.csv
