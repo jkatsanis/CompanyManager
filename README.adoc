@@ -15,7 +15,7 @@ HINTS (READ)!!!
 * Watch the video!
 * You can use your own style for the output, behinde the scenes it should work as showed tho. 
 * You do not need to list the Companies with 1, 2, ... you can get the input format for everything how you want
-* THERE Are methoded twice implemented, they are overloaded with 1 parameter because the program needs alot of user inputs so some method were untestable. Thats why we created a a overloaded method with a already done user input. You can find the user input commented over the method!
+* THERE Are methods twice implemented, they are overloaded with 1 parameter because the program needs alot of user inputs so some method were untestable. Thats why we created a a overloaded method with a already done user input. Just implement it like the other method, but take as user input the 2nd parameter
 
 [plantuml]
 ----
@@ -31,10 +31,12 @@ enum Position {
 }
 
 enum ProductType {
-    None
-    Banana
-    Kiwi
-    Chicken
+    Keyboard,
+    Mouse,
+    Headset,
+    Screen,
+    PC,
+    Controller,
 }
 
 class MyHashSet {
