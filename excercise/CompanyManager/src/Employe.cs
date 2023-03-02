@@ -25,7 +25,7 @@ namespace CompanyManager
         /// <returns></returns>
         public override string ToString()
         {
-            return $"Name: {Name} Position: {Position}";
+            return "=";
         }
 
         /// <summary>

@@ -167,7 +167,7 @@ namespace CompanyManager
         /// <returns>Returns the selected Company</returns>
         public static Company SelectCompany()
         {
-            return null;
+            return null!;
         }
 
 
@@ -179,7 +179,7 @@ namespace CompanyManager
         /// <returns>Returns the selected Company</returns>
         public static Company SelectCompany(string companyName)
         {
-            return null;
+            return null!;
         }
 
         /// <summary>
@@ -189,7 +189,7 @@ namespace CompanyManager
         /// <returns>Returns the specific object of the companyName, null if it is not found</returns>
         public static Company GetCompanyByName(string companyName)
         {
-            return null;
+            return null!;
         }
     }
 }

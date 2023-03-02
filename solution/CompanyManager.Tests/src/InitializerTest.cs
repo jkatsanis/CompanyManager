@@ -11,6 +11,8 @@ namespace CompanyManager.Tests.src
     public sealed class InitializerTest
     {
         [Fact]
+
+        // HINT RUN THE TESTS EVENTUALLY TWICE!!!!
         public void InitializeCompanies_Valid()
         {
             List<Company> companies = Initializer.InitializeCompanies("assets\\companies.csv", "assets\\employees.csv");

@@ -38,7 +38,8 @@ namespace CompanyManager
         /// </summary>
         public override string ToString()
         {
-            return $"Product: {ProductType}";
+            return "=";
         }
+
     }
 }
